@@ -1,0 +1,36 @@
+tracer.property: "I AM THE DEFAULT"
+spring.jpa.database: "POSTGRESQL"
+spring.datasource.platform: "postgres"
+spring.jpa.show-sql: "true"
+spring.database.driverClassName: "org.postgresql.Driver"
+spring.datasource.url: "jdbc:postgresql://192.168.99.100:5432/eagle_eye_local"
+spring.datasource.username: "postgres"
+spring.datasource.password: "p0stgr@s"
+spring.datasource.testWhileIdle: "true"
+spring.datasource.validationQuery: "SELECT 1"
+spring.jpa.properties.hibernate.dialect: "org.hibernate.dialect.PostgreSQLDialect"
+
+security:
+  oauth2:
+    resource:
+      userInfoUri: http://localhost:8901/user
+
+hystrix.shareSecurityContext: true
+spring:
+  cloud:
+    stream:
+      bindings:
+        inboundOrgChanges:
+          destination: orgChangeTopic
+          content-type: application/json
+          group: licensingGroupOfChangedOrg
+        input:
+          destination: orgChangeTopic
+          content-type: application/json
+          group: licensingGroup
+        kafka:
+          binder:
+            zkNodes: localhost
+            brokers: localhost
+redisServer: localhost
+redisPort: 6379
