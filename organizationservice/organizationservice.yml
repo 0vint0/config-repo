@@ -1,7 +1,7 @@
 security:
   oauth2:
     resource:
-      userInfoUri: http://authentication-service/user
+      userInfoUri: http://authentication-service:9000/user
 spring:
   cloud:
     stream:
